@@ -1,0 +1,44 @@
+﻿@model IEnumerable<NZWalks.UI.Models.RegionDto>
+
+@{
+}
+
+<h1 class="mt-3">Regions</h1>
+
+<div class="d-flex justify-content-end">
+    <a class="btn btn-secondary" asp-controller="Regions" asp-action="Add">
+        Add Region
+    </a>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>  </th>
+            <th>  </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var regions in Model)
+        {
+            <tr>
+                <td>@regions.Id</td>
+                <td>@regions.Code</td>
+                <td>@regions.Name</td>
+                <td>
+                    <a asp-controller="Regions" asp-action="Edit" asp-route-id="@regions.Id" class="btn btn-light">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <a asp-controller="Regions" asp-action="Delete" asp-route-id="@regions.Id" class="btn btn-danger">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
